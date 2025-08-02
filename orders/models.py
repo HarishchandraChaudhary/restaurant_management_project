@@ -20,5 +20,3 @@ class OrderItem(models.Model):
   
   def __str__(self):
     return f"{self.qynty} * {self.item_name} for Order #{self.order.order_name}"
-
-  
