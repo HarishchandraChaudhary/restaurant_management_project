@@ -12,7 +12,7 @@ class Restaurant(models.Model):
         return self.name
 
 
-class MeniItem(models.Model):
+class MenuItem(models.Model):
     """
     The model for single menu item (dish)
     Its includes the name, description , price and link to its restaurant
@@ -21,4 +21,5 @@ class MeniItem(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     price = models.DecimalField(max_digits=6,decimal_places=2)
+    
     
