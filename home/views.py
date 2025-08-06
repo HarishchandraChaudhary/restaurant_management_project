@@ -6,8 +6,8 @@ import requests
 def home_view(request):
     menu_items=[]
     try:
-        api_url = "http://your-api-menu-endpoint/menu/"
-        response = request.get(api_url)
+        api_url = "http://localhost:8000/api/menu/"
+        response = request.get(api_url,timeout=5)
         response.raise_raise_for_status()
         menu_items = response.json()
     except requests.exceptions.RequestException as e:
