@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title> Restaurant Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body{
+        font-family:'Inter',sans-serif;
+        
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center py-10">
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-xl max-w-4xl w-full">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8 pb-4 border-b-2 border-orange-400">Our Delicious Menu</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {% if menu_items %}
+                {% for item in menu_items %}
+                <div class="bg-gradient-to-br from-orange-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <h2 class="text-2xl font-semibold text-gray-900  mb-2 flex justify-between  items-center ">
+                        <span> {{item.name}}</span>
+                        <span class="text-orange-600 font-bold text-xl">${{item.price | floatformat:2}}</span>
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed">{{item.description}}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-span-full text-center text-gray-500 text-lg py-10">
+                <p > No menu items available at the moment. Please check back later!</p>
+            </div>
+            {% endif %}
+        <div class="text-center mt-10 pt-6 border-gray-200 text-gray-600">
+            <p class="text-lg">Enjoy your meal!</p>
+            <p class="text-sm-mt-2">For reservations, please contact us .</p>
+        </div>
+        </div>
+    </body>
+</html>
+
