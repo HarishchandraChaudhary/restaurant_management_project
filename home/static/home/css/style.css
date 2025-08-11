@@ -1,0 +1,9 @@
+:root{
+    --clr-bg:#f9fafb;
+    --clr-primary:#2563eb;
+}
+
+body{
+    font-family: 'Inter',sans-serif;
+    background: :var(var(--clr-bg));
+}
