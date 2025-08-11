@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My Home Page</title>
-    </head>
-    <body>
-        <h1>Hello, world!</h1>
-        <p>This is my first Django Page.</p>
-    </body>
-</html>
+{% extends 'home/base.html' %}
+{% block title %}My Stylish HomePage{% endblock %}
+
+{% block content %}
+
+<header>
+    <div class="container nav">
+        <a href="#"><strong>BrandName</strong></a>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% endblock %}
