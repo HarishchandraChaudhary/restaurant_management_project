@@ -131,3 +131,11 @@ STATIC_ROOT = BASE_DIR/ "staticfiles"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Restaurant Configuration
+RESTAURANT_NAME = "Delicious Bites Restaurant"
+RESTAURANT_TAGLINE = "Experience culinary excellence"
+RESTAURANT_PHONe = "+91 98765 43210"
+RESTAURANT_EMAIL = "info@deliciousbites.com"
+RESTAURANT_ADDRESS = "123 Food Street, Bangalore,Karnatka 560022"
