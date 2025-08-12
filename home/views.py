@@ -6,3 +6,6 @@ def home_page_view(request):
 
 def about(request):
     return render(request,'home/about.html')
+
+def _404(request):
+    return render(request,'template/404.html')
