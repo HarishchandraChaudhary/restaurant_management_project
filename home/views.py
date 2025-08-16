@@ -59,9 +59,12 @@ def contact(request):
 
 def index(request):
     context = {
-        'restaurant_name':'Coding-Themed Art Prints Restaurant',
-        'Welcome_message':'Experience the finest dining with our unique coding-themed atomsphere!'
+        'restaurant_name':getattr(settings,'RESTAURANT_NAME','Restaurant'),
+        'restaurant_phone':getattr(settings,'RESTAURANT_PHONE','N/A'),
+        'Welcome_message':'Experience the finest dinig with our unique coding-themed atomsphere!'
         
-
     }
+
     return render(request,'home/index.html',context)
+
+
