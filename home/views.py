@@ -57,3 +57,11 @@ def _404(request):
 def contact(request):
     return render(request,'contact.html')
 
+def index(request):
+    context = {
+        'restaurant_name':'Coding-Themed Art Prints Restaurant',
+        'Welcome_message':'Experience the finest dining with our unique coding-themed atomsphere!'
+        
+
+    }
+    return render(request,'home/index.html',context)
