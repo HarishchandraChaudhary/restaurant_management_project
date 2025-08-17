@@ -67,4 +67,9 @@ def index(request):
 
     return render(request,'home/index.html',context)
 
-
+def contact(request):
+    context = {
+        'page_title':'Contact Us',
+        'reservation_name':'Coding-Themed Art Prints Restaurant',
+    }
+    return render(request, 'home/contact.html',context)
