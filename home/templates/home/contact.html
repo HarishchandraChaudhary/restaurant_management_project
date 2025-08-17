@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Contact Us - Restaurant Management</title>
+        <style>
+            body{
+            font-family:Aril, sans-serif;
+            margin:0;
+            padding:0;
+            background-color:#f4f4f4;
+            line-height:1.6;
+
+            }
+
+            .container{
+            max-width:900px;
+            margin:50px auto;
+            padding:30px;
+            background-color:white;
+            border-radius:10px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+
+            }
+
+            h1{
+            color:#333;
+            text-align:center;
+            margin-bottom:30px;
+            border-bottom:3px solid #007bff;
+            padding-bottom:10px;
+
+            }
+            .contact-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap:30px;
+            margin-bottom:40px;
+
+            }
+
+
+
+            .contact-card{
+            background-color:#f8f9fa;
+            padding:25px;
+            border-radius:8px;
+            border-left: 4px solid #007bff;
+
+            }
+
+            .contact-card h3{
+            color:#007bff;
+            margin-bottom:15px;
+            font-size:1.2em;
+
+            }
+            .contact-item{
+            margin-bottom:15px;
+            display:flex;
+            text-align: center;
+            }
+            .contact-icon{
+            width:20px;
+            height:20px;
+            margin-right:10px;
+            color:#666;
+            }
+
+            .contact-value{
+            color:#333;
+            font-weight:500;
+
+            }
+            .hours-table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+            }
+
+            .hours-table th, .hours-table td{
+            padding:8px 12px;
+            text-align:left;
+            border-bottom:1px solid #ddd;
+            }
+
+            .hours-table th{
+            background-color:#007ff;
+            color:white;
+            font-weight:bold;
+            }
+
+            .navigation{
+            text-align:center;
+            margin-top:30px;
+            padding-top:20px;
+            border-top:1px solid #eee;
+            }
+
+            .nav-link{
+            display:inline-block;
+            margin:0 15px;
+            padding:10px 20px;
+            background-color:#007bff;
+            color:white;
+            text-decoration:mone;
+            border-radius:5px;
+            transition:background-color 0.3s;
+            }
+
+            .nav-link:hover{
+            background-color:#0056b3;
+            }
+
+            .map-placeholder{
+            background-color:#e9ecef;
+            height:200px;
+            display:flex;
+            text-align:center;
+            border-radius:8px;
+            color:#666;
+            font-style:italic;
+
+            }
+            @media(max-width:768px){
+            .container{
+            margin:20px;
+            padding:20px;
+            }
+            .contact-grid{
+            grid-template-columns:1fr;
+            gap:20px;
+            }
+            }
+            </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="contact-card">
+                <h3>Restaurant Information</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">Telphone</span>
+                    <span class="contact-value">Coding-themed Art Prints Restaurant</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">Contact Us</span>
+                    <span class="contact-value">123 Developer Street<br>Tech City,TC 12345</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">Contact Us</span>
+                    <span class="contact-value">+91 (87874) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">Email</span>
+                    <span class="contact-value">info@codingrestaurant.com</span>
+                </div>
+            </div>
+
+        <div class="contact-card">
+            <h3>Business Hours</h3>
+            <table class="hours-table">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr><td>Monday - Thursda</td>
+                    <td>11:00 AM - 10:00PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday - Saturday</td>
+                        <td>11:00 AM - 11:00</td>
+                    </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>12:00 PM - 9:00 PM</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="contact-card">
+            <h3>Management Team</h3>
+            <div class="contact-item">
+                <span class="contact-icon">Contact Person</span>
+                <span class="contact-value"><strong>General Manager:</strong>
+                <br>John Smith<br>+91 555 123-45678</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">Contact Person for Management</span>
+                <span class="contact-value"><strong>Head Chef:</strong><br>John Smith<br>+91 865755 98965</span>
+            </div>
+        </div>
+        <div class="contact-card">
+            <h3>Special Services</h3>
+            <div class="contact-item">
+                <span class=" contact-icon">Contact Person for management.</span>
+                <span class="contact-value"><strong>Private Events:</strong><br>events@codingrestarurant.com</span>
+            </div>
+            <div class="contact-item">
+                <span class=" contact-icon">Like delivery item</span>
+                <span class="contact-value"><strong>Catering:</strong>catering@codingreatant.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">Delivery Boy</span>
+                <span class="contact-value"><strong>Developer Meetups:</strong><br>meetups@codingrestraunt.com</span>
+            </div>
+        </div>
+        </div>
+        <!--location Map Placeholder-->
+        <div class="contact-card"><h3>Find Us</h3>
+        <div class="map-placeholder">
+            Interactive Map Coming Soon<br><small>123 Developer Street, Tech City, TC 12345</small>
+        </div>
+        </div>
+
+        <!--Navigation Links-->
+        <div class="navigation">
+            <a href="{% url 'home:index' %" class="nav-link">Back To Home</a>
+            <a href="#" class="nav-link">Menu</a>
+            <a href="#" class="nav-link">Reservations</a>
+        </div>
+    </body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+
