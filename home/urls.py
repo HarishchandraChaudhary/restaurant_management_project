@@ -11,4 +11,5 @@ urlpatterns = [
     path('contact/',views.contact, name='contact')
     path('',views.index, name='index'),
     path('contact/',views.contact, name='contact'),
+    path("menu/",views.menu_items_view,name="menu-items"),
 ]
