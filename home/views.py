@@ -73,3 +73,11 @@ def contact(request):
         'reservation_name':'Coding-Themed Art Prints Restaurant',
     }
     return render(request, 'home/contact.html',context)
+def menu_items_views(request):
+    menu_items = [
+        {"name":"Home","url":"/"},
+        {"name":"About","url":"/about/"},
+        {"name":"Services","url":"/services/"},
+        {"name":"Contact","url":"/contact/"},
+    ]
+    return render(request,"menu_items.html",{"menu_items":menu_items})
