@@ -1,10 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>My Home Page</title>
+        <meta charset="UTF-8">
+        <title>Internet Dashboard</title>
+        <style>
+            body{
+            font-family:Arial, sans-serif;
+            background-color:#f9f9f9;
+            color:#333;
+            margin:0;
+            padding:0;
+
+            }
+
+            nav{
+            background-color:underline;
+            padding:10px 20px;
+
+            }
+
+            nav a{
+            color:white;
+            text-decoration:none;
+            margin-right:15px;
+            font-weight:bold;
+            }
+
+            nav a:hover{
+            text-decoration:underline;
+            }
+            .container{
+            max-width:900px;
+            margin:20px auto;
+            padding:20px;
+            background:white;
+            border-radius:6px;
+            box-shadow:0px 2px 6px rgba(0,0,0,0.1)
+
+            }
+
+            h1,h2,h3{
+            color:#2c3e50;
+            }
+
+            .btn{
+            display:inline-block;
+            padding:8px 15px;
+            background:#3498db;
+            color:white;
+            border-radius:4px;
+            text-decoration:none;
+            margin-top:10px;
+            }
+
+            .btn:hover{
+            background:#2980b9;
+            }
+
+            footer{
+            text-align:center;
+            padding:10px;
+            background:#eee;
+            margin-top:20px;
+            }
+
+            </style>
+
     </head>
     <body>
-        <h1>Hello, world!</h1>
-        <p>This is my first Django Page.</p>
+
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/projects/tasks">Tasks</a>
+            <a href="project/submissions">Submissions</a>
+            <a href="/support">Support</a>
+            <a href="/discussion">Discussions</a>
+        </nav>
+        <div class="container">
+            <h1>Welcome to your Intern Dashboard</h1>
+            <p>You currently have <strong>6990 Points </strong>.Keep going</p>
+            <a href="/project/tasks" class="btn">View Tasks</a>
+        </div>
+        <footer>
+            &copy; 2025 Perpex Internships
+        </footer>
     </body>
 </html>
