@@ -73,11 +73,32 @@ def contact(request):
         'reservation_name':'Coding-Themed Art Prints Restaurant',
     }
     return render(request, 'home/contact.html',context)
-def menu_items_views(request):
-    menu_items = [
-        {"name":"Home","url":"/"},
-        {"name":"About","url":"/about/"},
-        {"name":"Services","url":"/services/"},
-        {"name":"Contact","url":"/contact/"},
-    ]
-    return render(request,"menu_items.html",{"menu_items":menu_items})
+def reservation_view(request):
+    """
+    Basic reservation page view with placeholder content
+    """
+    context ={
+
+        'page_title':'Reservation',
+        'coming_soon':True,
+        'features':[
+            {
+                'icon':Icon,
+                'title':'Party Size',
+                'description':'Choose the perfect table sixe for your group, from intimate dinners to large parties.'
+            },
+            {
+                'icon':'Icon for person ',
+                'title':'Party Size',
+                'description':'Choose the perfect table size for your group, from intimate dinners to large parties.'
+
+            },{
+                'icon':'Icon for confirmation',
+                'title':'Instant Confirmation',
+                'description':'Recieve immediate confirmation and reminder via email SMS.'
+            }
+
+
+        ]
+    }
+    return render(request,'reservation.html',context)
