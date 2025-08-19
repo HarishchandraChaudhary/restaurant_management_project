@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Reservation - Restaurant Mangement</title>
+        <style>
+            *{
+            marging:0;
+            padding:0;
+            box-sizing:border-box;
+
+            }
+            body{
+            font-family:'Arial',sans-serif;
+             background-color:#f8f9fa;
+              color: #333;
+              line-height:1.6;
+            }
+
+            .header{
+            background:line-gradient(135def, #667eea 0%,#764ba2 100%);
+            color:white;
+            padding:2rem 0;
+             text-align:center;
+             box-shadow:0 2px 10px rgba(0,0,0,0.1);
+
+            }
+
+            .header h1{
+            font-family:2.5rem;
+            margin-bottom:0.5rem;
+            font-weight:300;
+
+
+            }
+
+            .header p{
+            font-size:1.1rem;
+            opacity:0.9;
+            }
+
+            .container{
+            max-width:1200px;
+            margin:0 auto ;
+            padding:3rem 2rem;
+            }
+
+            .placeholder-content{
+            text-align:center;
+            background:white;
+            padding:4rem 2rem;
+            border-radius:12px;
+            box-shadow:0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom:2rem;
+
+
+            }
+
+            .placeholder-icon{
+            font-size:4rem;
+            margin-bottom:1.5rem;
+            color:#667eea;
+            }
+
+            .placeholder-title{
+            font-size:2rem;
+            color:#2c3e50;
+            margin-bottom:1rem;
+            font-weight:600;
+            }
+
+            .placeholder-message{
+            font-size:1.1rem;
+            color:#666;
+            padding:0.8rem 2rem;
+            border:none;
+            border-radius:25px;
+            font-size:1rem;
+            font-weight:500;
+            cursor:pointer;
+            transition:transform 0.3s ease;
+
+            }
+
+            .coming-soon:hover{
+            transform:translateY(-2px);
+            }
+
+            .feature-preview{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:2rem;
+            margin-top:3rem;
+            }
+            .feature-card{
+            background:white;
+            padding:2rem;
+            border-radius:8px;
+            box-shadow:0 2px 4px rgba(0,0,0,0.1)
+            text-align:center;
+            border-left:4px slid #667eea;
+            }
+
+            .feature-icon{
+            font-size:2.5rem;
+            margin-botton:1rem;
+            }
+            .feature-title{
+            font-size:1.3rem;
+            color:#2c3e50;
+            margin-bottom:1rem;
+            font-weight:600;
+            }
+
+            .feature-description{
+            color:#666;
+            line-height:1.6;
+            }
+            .nav-links{
+            text-align:center;
+            margin-top:3rem;
+            }
+
+            .nav-links a {
+            display:inline-block;
+            margin:0 1rem;
+            padding:0.8rem 1.5rem;
+            background-color:white;
+            color:#667eea;
+            text-decoration:none;
+             border-radius:6px;
+             border:2px solid #667eea;
+             transition:all 9.3s ease;
+              font-weight:500;
+            }
+
+            .nav-links a:hover{
+            background-color:#667eea;
+             color:white;
+            }
+            .footer{
+            background-color:@2c3e50;
+             color:white;
+             text-align:center;
+             padding:2rem;
+             margin-top:3rem;
+            }
+
+            @media(max-width:768px){
+            .header{
+            font-size:2rem;
+            }
+
+            .placeholder-content{
+            padding:3rem 1.5rem;
+            }
+            .placeholder-title{
+            font-size:1.5rem;
+            }
+
+            .nav-links a{
+            display:block;
+            margin:0.5rem 0;
+            }
+            }
+            </style>
+
+    </head>
+    <body>
+        <header class="header">
+            <h1>Restaurant Reservation</h1>
+            <p>Your table awaits - coming Soon!</p>
+        </header>
+        <div class="container">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">Icon</div>
+                <h2 class="placeholder-title">Reservation System</h2>
+                <p class="placeholder-message">We're currently working on our reservarion system to provide you with the best dining experience.
+                    Soon you'llbe able to book tables, select your preferred time slots, and manage your reservations all from this convient online platform.</p>
+                    <button class="coming-soon">Coming Soon</button>
+            </div>
+
+            <div class="features-preview">
+                <div class="feature-card">
+                    <div class="feature-icon">Icon</div>
+                    <h3 class="feature-title">Easy Booking </h3>
+                    <p class="feature-description">
+                        Select your preferred date and time with our intutive calendor interface.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">Icon</div>
+                    <h3 class="feature-title">Party Size </h3>
+                    <p class=" feature-description">Choose the perfect tabel size for your group , form intimate dinners to large parties.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">Icon</div>
+                    <h3 class="feature-title">Special Resquests</h3>
+                    <p class="feature-description">Add special requests , dietary preferences , or celebration notes your reservation.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">Icon</div>
+                    <h3 class="feature-title">Instanst Confirmation</h3>
+                    <p class="feature-description">
+                        Receive immediate confirmation and reminders via email or SMS.</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' % }">Back to Home</a>
+                <a href="{% url 'products' %}">View Menu</a>
+                <a href="{% url 'orders' %}">Order Online</a>
+            </div>
+            <footer class="footer">
+                <p>&copy; 2025 Restaurant Management System. All rights reserved. </p>
+            </footer>
+        </div></body>
+</html>
+
+
+
+
+
+
