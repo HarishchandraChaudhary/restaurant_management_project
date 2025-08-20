@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/accounts/',include('account.urls')),
     path('api/products/',include('products.urls')),
     path('api/orders/',include('orders.urls')),
-    
+    path('account/',include('account.urls')),
 ]
 
 # Serve media files during development
