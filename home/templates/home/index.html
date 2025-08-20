@@ -7,23 +7,38 @@
 
 <div class="container">
     <div class="hero-section">
-        <h1>Welcome to Our Restaurant </h1>
-        <p>Manage Your restaurant operations effieciently</p>
-        <div class="dashboard-cards">
-            <div class="card">
-                <h3>Products</h3>
-                <a href="{% url 'product:list' %}" class="btn">View Products</a>
+        <h1>Welcome to Our Restaurant</h1>
+        <p> Streamline our restaurant operations with our comprehensive management systems. Track orders, manage inventory , and delight your customers.</p>
+        <div class="stats-section">
+            <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Menu Items</span>
             </div>
-            <div class="card">
-                <h3>Orders</h3>
-                <p>Track customer orders</p>
-                <a href="{% url 'orders:list' %}" class="btn">View Orders</a>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Menu Items</span>
             </div>
-            <div class="card">
-                <h3>Account</h3>
-                <p>Manage use accounts </p>
-                <a href="{% url 'account:profile' %}" class="btn">View Account</a>
+            <div class="stat-item">
+                <spna class="stat-number">50+</spna>
+                <span class="stat-label">Staff Members</span>
             </div>
+        </div>
+    </div>
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Products</h3>
+            <p>Manage your menu items, update prices , and track inventory levels with ease.</p>
+            <a href="{% url 'products:list' %}" class="btn">View Products</a>
+        </div>
+        <div class="card">
+            <h3>Orders</h3>
+            <p>Track customer orders in real-time , manage deliveries, and analyze sales data.</p>
+            <a href="{% url 'orders:list' %}" class="btn">View Orders</a>
+        </div>
+        <div class="card">
+            <h3>Account</h3>
+            <p>Manage user accounts , permissions , and staff information securely.</p>
+            <a href="{% url 'account:profile' %}" class="btn">View Account</a>
         </div>
     </div>
 </div>
