@@ -1,76 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>{{restaurant_name}} - Welcome</title>
-        <style>
-            body{
-            font-family:Arial, sans-serif;
-            margin:0;
-            padding:0;
-            background-color:#f4f4f4;
+{% extends 'base.html' %}
+{% load static %}
 
-            }
-            .container{
-            max-width:800px;
-            margin:50px auto;
-            padding:20px;
-            background-color:white;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
+{% block title %} Home - Restaurant Management{% endblock %}
 
+{% block content %}
 
-            }
-
-            h1{
-            color:#333;
-            margin-bottom:20px;
-
-            }
-            .welcome-message{
-            font-size:18px;
-            color:#666;
-            line-height:1.6;
-
-            }
-            .contanct-info{
-            margin-top:30px;
-            padding:15px;
-            background-color:#f8f9fa;
-            border-radius:5px;
-            }
-
-            .phone-number{
-            font-size:20px;
-            font-weight:bold;
-            color:#007bff;
-            margin-top:10px;
-
-            }
-
-            .phone-label{
-            font-size:16px;
-            color:#666;
-            }
-
-            </style>
-
-    </head>
-    <body>
-        <div class="navigation" style="text-align:center; margin-top:30px;">
-            <a href="{% url 'home:contact' %" style="display:inline-block; padding:12px 25px;background-color:#007bff; color:white; text-decoration:none;border-radius:5px; font-weight:bold;">Contact Us</a>
-        </div>
-        <div class="container">
-            <h1>Welcome to {{restaurant_name}}</h1>
-            <div class="welcome-message">
-                <p>{{welcome-message}}</p>
-                <p>We're delighted to have you visit our restaurant management system.</p>
+<div class="container">
+    <div class="hero-section">
+        <h1>Welcome to Our Restaurant </h1>
+        <p>Manage Your restaurant operations effieciently</p>
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Products</h3>
+                <a href="{% url 'product:list' %}" class="btn">View Products</a>
             </div>
-            <div class="contact-info">
-                <div class="phone-label">Call us to make a reservation:</div>
-                <div class="phone-number">{{restaurant_phone}}</div>
+            <div class="card">
+                <h3>Orders</h3>
+                <p>Track customer orders</p>
+                <a href="{% url 'orders:list' %}" class="btn">View Orders</a>
+            </div>
+            <div class="card">
+                <h3>Account</h3>
+                <p>Manage use accounts </p>
+                <a href="{% url 'account:profile' %}" class="btn">View Account</a>
             </div>
         </div>
-    </body>
-</html>
-
+    </div>
+</div>
+{% endblock %}
