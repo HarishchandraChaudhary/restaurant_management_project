@@ -25,6 +25,8 @@ urlpatterns = [
     path('api/products/',include('products.urls')),
     path('api/orders/',include('orders.urls')),
     path('account/',include('account.urls')),
+    path('contact/',TemplateView.as_view(template_name='contact.html'),name='contact')
+
 ]
 
 # Serve media files during development
