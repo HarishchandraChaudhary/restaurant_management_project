@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 from .models import Restaurant
+from .forms import FeedbackForm
 
 def index(request):
     """
@@ -102,3 +103,14 @@ def reservation_view(request):
         ]
     }
     return render(request,'reservation.html',context)
+
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'templates/thanks.html')
+    else:
+        form = FeedbackForm()
+    return render(request,'templates/feedback_form.html',{"form":form})
