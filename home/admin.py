@@ -8,4 +8,4 @@ class RestaurantAdmin(admin.ModelAdmin):
     search_fields = ['name','tagline']
     fields = ['name','tagline','phone','email','address','logo','is_active']
     
-# Register your models here.
+admin.site.register(Feedback)
