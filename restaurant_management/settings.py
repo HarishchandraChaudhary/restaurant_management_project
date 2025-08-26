@@ -136,6 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Restaurant Configuration
+RESTAURANT_NAME = "The Glided Spoon"
 RESTAURANT_NAME = "Delicious Bites Restaurant"
 RESTAURANT_TAGLINE = "Experience culinary excellence"
 RESTAURANT_PHONe = "+91 98765 43210"
