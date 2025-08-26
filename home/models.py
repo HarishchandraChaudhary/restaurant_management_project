@@ -1,7 +1,8 @@
 from django.db import models
 
 class Restaurant(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharFie
+    ld(max_length=200)
     phone_number = models.CharField(max_length=20)
     address = models.TextField(blank=True)
     email = models.EmailField(blank=True)
@@ -15,3 +16,9 @@ class Restaurant(models.Model):
         verbose_name = "Restaurant Information"
         verbose_name_plural = "Restaurant Information"
         
+class RestaurantInfo(models.Model):
+    name = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return self.name
