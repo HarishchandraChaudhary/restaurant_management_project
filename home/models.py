@@ -46,3 +46,19 @@ class RestaurantLocation(models.Model):
         """
         verbose_name="Restaurant Location"
         verbose_name_plural = "Restaurant Locations"
+
+
+
+class ContactSubmission(model.Model):
+    """
+    A simple Django model to store constact form submissions.
+    """
+    name = models.EmailField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+        
+
+
