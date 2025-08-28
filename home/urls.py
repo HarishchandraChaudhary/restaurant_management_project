@@ -11,5 +11,7 @@ urlpatterns = [
     path('contact/',views.contact, name='contact')
     path('',views.index, name='index'),
     path('contact/',views.contact, name='contact'),
-    path('reservation/',views.reservation_views, name='reservation')
+    path('reservation/',views.reservation_views, name='reservation'),
+    path('success/',views.contact_success, name='success_page'),
+    
 ]
