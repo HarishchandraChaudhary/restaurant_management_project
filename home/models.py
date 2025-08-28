@@ -22,3 +22,27 @@ class RestaurantInfo(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class RestaurantLocation(models.Model):
+    """
+    A Django model to store a restaurant's location details.
+    """
+    address = model.CharField(max_length=255,help_text = "The street address of the restaruant ")
+    city = models.CharField(max_length=100,help_text="The city where the restaurant located")
+    state = models.CharField(max_length=100,help_text="The state where the restaurant is located.")
+    zip_code = models.CharField(max_length=20, help_text="The zip code of the restaurant is available")
+    
+    def __str__(self):
+        """
+        Returns a string representation of the model instance.
+        """
+        return f"{self.address}, {self.city},{self.state}{self.zip_code}"
+    
+    class Meta:
+        """
+        Meta options for the model
+        """
+        verbose_name="Restaurant Location"
+        verbose_name_plural = "Restaurant Locations"
