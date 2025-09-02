@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import RestaurantInfo,ContactForm
+from .models import RestaurantInfo,ContactForm,MenuItem, RestaurantAddress
 
 def home(request):
     try:
