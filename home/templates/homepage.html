@@ -1,9 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Welcome!</title>
+        <meta charset="UTF-8">
+        <title>Restaurant Home Page </title>
+        <style>
+            .menu-item{
+            border:1px solid #ccc;
+            padding:15px;
+            margin-bottom:15px;
+            text-align:center;
+            }
+
+            .menu-item img{
+            max-width:100%;
+            height:auto;
+            border-radius:8px;
+            }
+
+            .menu-item h3{
+            margin-top:10px;
+            margin-bottom:5px;
+            }
+
+            </style>
     </head>
     <body>
-        <h1>Welcome to {{resturant_name}}</h1>
+        <h1>Welcome to Our Restaurant!</h1>
+        {% if restaurant_address %}
+        <div class="restaurant-address">
+            <h2>Our Location</h2>
+            <p>{{restaurant_address.street}}</p>
+            <p>{{restaurant_address.city}}, {{restaurant_address.state}}, {{restaurant_address.zipcode}}</p>
+        </div>
+        {% endif %}
+
+        <hr>
+        <h2>menu-item</h2>
+        <div>
+            {% item for menu_items %}
+            <div class="menu-item">
+                {% if item.image %}
+                <img src="{{item.image.url}}" alt="{{item.name}}">
+
+                {% else %}
+                <p>No image available</p>
+                {% endif %}
+
+                <h3>{{item.name}}</h3>
+                <p>{{item.description}}</p>
+                <p>Item:{{item.price}}</p>
+            </div>
+            {% empty %}
+            <p>No menu items are available at the moment.</p>
+            {% endfor %}
+        </div>
     </body>
 </html>
