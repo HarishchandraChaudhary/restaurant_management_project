@@ -8,4 +8,10 @@ class Item(models.Model):
 
     def __str__(self):
         return str(self.item_name)
-    
+class Restaurant(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=250)
+
+
+    def __str__(self):
+        return self.name
