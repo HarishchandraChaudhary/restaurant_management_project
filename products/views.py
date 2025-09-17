@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from .models import Restaurant
 from .models import Item
 from .serializers import ItemSerializer
 
@@ -51,3 +51,14 @@ class HardCodeMenuView(APIView):
             }
         ]
         return Response(menu_data,status=status.HTTP_200_OK)
+
+def homepage_view(request):
+    try:
+        restaurant = Restaurant.objects.first()
+        address = restaurant.address 
+    except Restaurant.DoesNotExist:
+        address = "Address not available."
+        context = {
+            'restaurant_address':address
+        }
+        return render(request,'homepage_view.html',context)
