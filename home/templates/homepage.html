@@ -1,58 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <title>Restaurant Home Page </title>
-        <style>
-            .menu-item{
-            border:1px solid #ccc;
-            padding:15px;
-            margin-bottom:15px;
-            text-align:center;
-            }
-
-            .menu-item img{
-            max-width:100%;
-            height:auto;
-            border-radius:8px;
-            }
-
-            .menu-item h3{
-            margin-top:10px;
-            margin-bottom:5px;
-            }
-
-            </style>
+        <title>Restaurant Homepage</title>
     </head>
     <body>
-        <h1>Welcome to Our Restaurant!</h1>
-        {% if restaurant_address %}
-        <div class="restaurant-address">
-            <h2>Our Location</h2>
-            <p>{{restaurant_address.street}}</p>
-            <p>{{restaurant_address.city}}, {{restaurant_address.state}}, {{restaurant_address.zipcode}}</p>
-        </div>
-        {% endif %}
-
-        <hr>
-        <h2>menu-item</h2>
-        <div>
-            {% item for menu_items %}
-            <div class="menu-item">
-                {% if item.image %}
-                <img src="{{item.image.url}}" alt="{{item.name}}">
-
-                {% else %}
-                <p>No image available</p>
-                {% endif %}
-
-                <h3>{{item.name}}</h3>
+        <h1>{{restaurant.name}}</h1>
+        <p>{{restaurant.address}}</p>
+        <form method="GET" action="">
+            <input type="text" name="q"placeholder="Search for Menu items.. value="{{query"">
+            <button type="submit">Search</button>
+        </form>
+        <ul>
+            {% for item in menu_items %}
+            <li>
+                <strong>{{item.name}}</strong>-${{item.price}}
                 <p>{{item.description}}</p>
-                <p>Item:{{item.price}}</p>
-            </div>
-            {% empty %}
-            <p>No menu items are available at the moment.</p>
+            </li>
             {% endfor %}
-        </div>
+        </ul>
+        {% else %}
+        <p>No Menu items found.</p>
+        {% endif %}
+        <hr>
+        <h2>Opening Hours</h2>
+        {% if restaurant %}
+        <ul>{% for hours in restaurant.opening_hours.all %}
+            <li>
+                <strong>{{hours.get_weekday_display}}</strong>
+                {{hours.from_hour | time:"h:i A"}}- {{hours.to_hour | time"h:i A"}}
+
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No menu items found.</p>
+        {% endif %}
+        <hr>
+        <h2>Opening Hours</h2>
+        {% if restaurant %}
+        <ul>{% for hours in restaurant.opening_hours.all %}
+            <li><strong>{{hours.get_weekday_display}}</strong>:
+            {{hours.from_hour. | time:"h:i A"}}- {{hours.to_hour | time "h : i A"}}
+            </li>
+            {% endfor %}
+        </ul>
+        {%  else %}
+        <p>Opening hours not available.</p>
+        {% endif %}
     </body>
 </html>
