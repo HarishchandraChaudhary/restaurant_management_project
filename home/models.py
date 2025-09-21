@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 class Restaurant(models.Model):
     name = models.CharFie
     ld(max_length=200)
@@ -59,6 +59,9 @@ class ContactSubmission(model.Model):
     def __str__(self):
         return self.name
 
-        
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)
 
 
