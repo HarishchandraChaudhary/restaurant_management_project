@@ -53,3 +53,14 @@ class OrderStatus(models.Model):
         verbose_name = 'Order Status'
         verbose_name_plural = 'Order Statuses'
         ordering = ['name']
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=20,unique=True)
+    discount_percent = models.IntegerField()
+    active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.code
+
+    class Meta:
+        verbose_name = 'Coupon'
+        verbose_name_plural='Coupons'
