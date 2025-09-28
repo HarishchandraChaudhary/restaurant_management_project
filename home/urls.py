@@ -13,5 +13,6 @@ urlpatterns = [
     path('contact/',views.contact, name='contact'),
     path('reservation/',views.reservation_views, name='reservation'),
     path('success/',views.contact_success, name='success_page'),
+    path('api/categories/',MenuCategoryListAPIView.as_view(),name='category-list'),
     
 ]
