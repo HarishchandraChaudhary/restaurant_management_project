@@ -65,3 +65,14 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
 
 
+
+class MenuCategory(models.Model):
+    name = models.CharField(max_length=100,unique=True,verbose_name='Cateogry Name',help_text='The unique name of the meny category')
+    def __str__(self):
+        return self.name
+
+
+    class Meta:
+        verbose_name = 'Menu Category'
+        verbose_name_plural = 'Menu Categories'
+        ordering = ['name']
