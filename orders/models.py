@@ -45,13 +45,11 @@ class OrderItem(models.Model):
         return f"{self.quantity} of {self.menu_item.name} for Order #{self.order.id}"
 
 
-class MenuItem(models.Model):
-    name = models.CharField(max_length=250)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to = 'menu_images')
-
-
+class OrderStatus(models.Model):
+    name= models.CharField(max_length=50,unique = True,verbose_name='Status Name',help_text = 'The unique of the order status.')
     def __str__(self):
         return self.name
-        
+    class Meta:
+        verbose_name = 'Order Status'
+        verbose_name_plural = 'Order Statuses'
+        ordering = ['name']
