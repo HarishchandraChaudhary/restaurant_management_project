@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import RestaurantInfo,ContactForm,MenuItem, RestaurantAddress
+from .models import RestaurantInfo,ContactForm
 
 def home(request):
     try:
@@ -22,3 +22,12 @@ def contact(request):
         else:
             form = ContactForm()
         return render(request,'templates/contact.html',{'form':form})
+
+
+from .models import MenuCategory
+from .serializers import MenuCategorySerializer
+
+class MenuCategoryListAPIView(ListAPIView):
+    queryset = MenuCategory.objects.all()
+    serializers_class = MenuCategorySerializer
+    
