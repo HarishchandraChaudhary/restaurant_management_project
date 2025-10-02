@@ -18,8 +18,10 @@ class Order(models.Model):
         ('delivered','Delivered'),
         ('canceled','Canceled'),
     )
-
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name ='orders', verbose_name='Customers')
     customer = models.ForeignKey(User,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    total_price = models.DecimalField(max_digits=10,decimal_places2)
 
     order_items = models.ManyToManyField(MenuItem,through='OrderItem')
 
