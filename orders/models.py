@@ -23,6 +23,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=10,decimal_places2)
 
+
+
     order_items = models.ManyToManyField(MenuItem,through='OrderItem')
 
     total_amount = models.DecimalField(max_digits=10, decimal_places=2,default=0.00)
