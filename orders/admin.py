@@ -26,3 +26,4 @@ admin.site.register(Order,OrderAdmin)
 # To register a model with the default admin, you simply pass the model
 admin.site.register(MenuItem)
 
+
