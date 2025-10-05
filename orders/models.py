@@ -127,3 +127,35 @@ class Coupon(models.Model):
 
     def __str__(self):
         return f "{self.code}({self.discount_percentage * 100}%)"
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('pending','Pending Confirmation'),
+        ('processing','In Progress'),
+        ('delivered','Delivered'),
+        ('cancelled','Cancelled')
+    ]
+    status = models.CharField(
+        max_length = 20,
+        choices = STATUS_CHOICES,
+        deffault = 'pending',
+        verbose_name = 'Order Status'
+    )
+    order_date = models.DateTimeField(
+        default = timezone.now,
+        verbose_name = "Order Date"
+    )
+    total_amount = models.DecimalField(
+        max_digits = 10,
+        decimal_places = 2,
+        default = 0.00
+    )
+    objects = ActiveOrderManager()
+
+    class Meta:
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+        ordering = ['-order_date']
+
+    def __str__(self):
+        return f "Order #{self.id} - Status:{self.status}"
