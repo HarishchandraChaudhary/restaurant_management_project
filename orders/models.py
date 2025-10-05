@@ -14,6 +14,22 @@ class MenuItem(models.Model):
 
 
 
+class Table(models.Model):
+    table_number = models.IntegerField(unique=True,
+    verbose_name = 'Table Number')
+    capacity = models.IntegerField(
+        default = 2,
+        verbose_name = 'Seating Capacity'
+    )
+    is_available = models.BooleanField(
+        default=True,
+        verbose_name = 'Is Available'
+    )
+    class Meta:
+        ordering = ['table_number']
+        verbose_name = 'Restaurant Table'
+        verbose_name_plural = 'Restaurant Tables'
+
 class Order(models.Model):
     STATUS_CHOICES= (
         ('pending','Pending'),
