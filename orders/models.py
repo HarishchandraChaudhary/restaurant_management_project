@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
+from decimal import Decimal
 
 
 class MenuItem(models.Model):
@@ -86,3 +88,42 @@ class MenuItem(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     category = models.ForeignKey(Category,on_delete=models.CASCADE, related_name='Category')
+
+
+
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=50,
+    unique=True,
+    verbose_name='Coupon Code')
+
+    discount_percentage = models.DecimalField(
+
+        max_digits=3,
+        decimal_places=2,
+        validators = [MinValueValidator(Decimal('0.01')),MaxValueValidator(Decimal('0.02'))]
+        verbose_name = 'Discount Percentage (0.01 to 0.99)'
+        help_text = 'Stored as a decimal (0.10 for 10% off)'
+
+    )
+    valid_from = models.DateField(
+        verbose_name = 'Valid Form'
+    )
+
+    is_active = models.BooleanField(
+        default = True,
+        verbose_name  = "Is Active"
+
+
+    )
+    valid_until = models.DateField(
+        verbose_name = 'Valid Until'
+    )
+
+    class Meta:
+        verbose_name = 'Coupon'
+        verbose_name_plural='Coupons'
+        ordering = ['valid_until']
+
+    def __str__(self):
+        return f "{self.code}({self.discount_percentage * 100}%)"
