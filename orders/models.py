@@ -9,7 +9,7 @@ class MenuItem(models.Model):
     price = models.DecimalField(max_digits=6,decimal_places = 2)
     # The __str__ methos is important for making objects human readable in the admin.
     def __str__(self):
-        return self.
+        return self.name
         
 
 
