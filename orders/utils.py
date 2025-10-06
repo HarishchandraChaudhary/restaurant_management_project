@@ -13,6 +13,7 @@ def send_order_confirmation_email(order_id:int,customer_email:str,order:int):
         f"Total Price:${total_price:.2f}\n\n"
         f"Please contact us if you have any questions.\n"
 
+
     )
     from_email = settings.DEFAULT_FROM_EMAIL
     recipient_list = [customer_email]
