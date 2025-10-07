@@ -14,5 +14,9 @@ urlpatterns = [
     path('reservation/',views.reservation_views, name='reservation'),
     path('success/',views.contact_success, name='success_page'),
     path('api/categories/',MenuCategoryListAPIView.as_view(),name='category-list'),
-    
+    path(
+        'contact/submit/',
+        ContactFormSubmissionCreateView.as_view(),
+        name='contact-submit-api'
+    ),
 ]
