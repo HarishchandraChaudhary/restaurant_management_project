@@ -1,6 +1,26 @@
 from django.shortcuts import render,redirect
 from .models import RestaurantInfo,ContactForm
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework import status
+from .models import ContactFormSubmission
+from .serializers import ContactFormSubmissionSerializer
 
+class ContactFormSubmissionCreateView(generics.CreateAPIView):
+    queryset = ContactFormSubmission.objects.all()
+    serializer_class = ContactFormSubmissionSerializer
+
+    def create(self,request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            {'success':'Thank you for your message! We will ve in touch with my orders!'
+            'submission': serializer.data},
+            status=status.HTTP_201_CREATED,
+            headers=headers
+        )
 def home(request):
     try:
         info = RestaurantInfo.objects.get(pk=1)
