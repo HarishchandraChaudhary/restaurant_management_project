@@ -1,35 +1,29 @@
-import logging
-from django.core.mail import send_mail
-from django.conf import settings
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+from django.core.mail import send_mail , VadHeaderError
+from typing import List
 
-logger = logging.getLoger(__name__)
-def send_order_confirmation_email(order_id:int,customer_email:str,order:int):
-    plain_message = (
-        f"Thank you for your order! Your order details are confirmed.\n\n"
-        f"Order ID:{order_id}\n",
-        f"Summary:\n{order_summary}\n"
-        f"Total Price:${total_price:.2f}\n\n"
-        f"Please contact us if you have any questions.\n"
+def send_simple_email(
+subject:str,
+message:str,
+recipient_list:List[str]
+from_email:str=None) -> bool:
 
+if not recipient_list:
+    print('Error: Recipient list is empty.')
+    return False
 
+try:
+    send_mail(
+        subject:subject,
+        message=message,
+        from_email = from_email,
+        recipient_list = recipient_list,
+        fail_silently = False,
     )
-    from_email = settings.DEFAULT_FROM_EMAIL
-    recipient_list = [customer_email]
-
-    try:
-        send_mail(
-            subject = subject,
-            message = plain_message,
-            from_email = from_email,
-            recipient_list=recipient_list,
-            fail_silently = False
-
-        )
-        logger.info(f"Order confirmation email sent successfully for Orders)"
-        return True
-
-        except Exception as e:
-            logger.error(f"Failed to send order confirmation email for Order In.)"
-            return False
+    print(f"Successfully sent email to:{',.join(recipient_list)}")
+    return True
+except BadHeaderError:
+    print('Error:Email subject or body contained invalid headers.')
+    return False
+except Exception as e:
+    print(f"An unexcepted error occurred while sending email:{e}")
+    retur False
