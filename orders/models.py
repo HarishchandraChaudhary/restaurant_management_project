@@ -31,6 +31,7 @@ class Table(models.Model):
         verbose_name = 'Restaurant Table'
         verbose_name_plural = 'Restaurant Tables'
 
+
 class Order(models.Model):
     STATUS_CHOICES= (
         ('pending','Pending'),
