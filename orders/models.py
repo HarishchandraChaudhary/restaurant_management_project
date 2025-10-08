@@ -11,10 +11,6 @@ class MenuItem(models.Model):
     def __str__(self):
         return self.name
         
-
-
-
-
 class Table(models.Model):
     table_number = models.IntegerField(unique=True,
     verbose_name = 'Table Number')
