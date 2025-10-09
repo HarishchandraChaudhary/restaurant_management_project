@@ -175,3 +175,27 @@ class Order(models.Model):
 
     def __str__(self):
         return f "Order #{self.id} - Status:{self.status}"
+
+try:
+    from Restaurant.utils import calculate_discount
+except ImportError:
+    def calculate_discount(price,discount_percent):
+        if discount_percent:
+            return price - (price * Decimal(discount_percent)/100)
+        return price
+class Order(models.Model):
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def calculate_total(self):
+        total_cost = Decimal('0.00')
+        order_items = self.items.all()
+        for item in order_items:
+            base_price = item.price
+            final_price = calculate_discount(base_price, item.discount_percent)
+            total_cost += final_price
+
+        return total_cost
+    def __str__(self):
+        return f"Order{self.id}"
