@@ -38,6 +38,7 @@ class Order(models.Model):
         ('delivered','Delivered'),
         ('canceled','Canceled'),
     )
+    
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name ='orders', verbose_name='Customers')
     customer = models.ForeignKey(User,on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
