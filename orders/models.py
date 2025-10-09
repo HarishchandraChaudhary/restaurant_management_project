@@ -23,6 +23,7 @@ class Table(models.Model):
         verbose_name = 'Is Available'
     )
     
+    
     class Meta:
         ordering = ['table_number']
         verbose_name = 'Restaurant Table'
